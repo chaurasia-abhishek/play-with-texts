@@ -10,7 +10,7 @@ export default function Form(props) {
         props.showalert('text is converted in lower case', 'primary')
     };
     const removespaces = () => {
-        convert(converttext.replace(/\s+/g, ' '))
+        convert(converttext.trim().replace(/\s+/g, ' '))
         props.showalert('extra spaces are removed from text', 'primary')
     };
     const cleartext = () => {
