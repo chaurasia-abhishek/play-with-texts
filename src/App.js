@@ -2,8 +2,6 @@ import React from 'react'
 import Navbar from './components/Navbar';
 import Form from './components/Form';
 import Alert from './components/Alert';
-import About from './components/About';
-import { BrowserRouter as Router, Route, Switch } from "react-router-dom"
 import { useState } from 'react';
 document.body.style.backgroundColor = 'rgb(35 70 108)';
 export default function App() {
@@ -30,18 +28,10 @@ export default function App() {
     };
     return (
         <>
-            <Router>
-                <Navbar mode={mode} toggledarkmode={toggledarkmode} />
-                <Alert alert={alert} />
-                <Switch>
-                    <Route exact path='/'>
-                        <Form text='enter text to play' mode={mode} showalert={showalert} />
-                    </Route>
-                    <Route path='/about'>
-                        <About />
-                    </Route>
-                </Switch>
-            </Router>
+
+            <Navbar mode={mode} toggledarkmode={toggledarkmode} />
+            <Alert alert={alert} />
+            <Form text='enter text to play' mode={mode} showalert={showalert} />
         </>
     )
 }
