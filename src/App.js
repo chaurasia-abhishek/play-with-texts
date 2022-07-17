@@ -1,6 +1,6 @@
 import React from 'react'
 import Navbar from './components/Navbar';
-import Form from './components/Form';
+import Home from './components/Home';
 import Alert from './components/Alert';
 import { useState } from 'react';
 document.body.style.backgroundColor = 'rgb(35 70 108)';
@@ -31,7 +31,7 @@ export default function App() {
 
             <Navbar mode={mode} toggledarkmode={toggledarkmode} />
             <Alert alert={alert} />
-            <Form text='enter text to play' mode={mode} showalert={showalert} />
+            <Home text='enter text to play' mode={mode} showalert={showalert} />
         </>
     )
 }
