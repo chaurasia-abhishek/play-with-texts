@@ -30,22 +30,22 @@ export default function Form(props) {
     const onchange = (event) => { convert(event.target.value) };
 
     return (
-        <div className={`d-flex flex-column vh-100 pt-5 align-items-center text-${props.mode === 'light' ? 'dark' : 'light'}`} 
+        <div className={`pt-5 align-items-center text-${props.mode === 'light' ? 'dark' : 'light'}`} 
         >
-            <h1 className='p-3'>{props.text.toUpperCase()} </h1>
-            <div >
+            <h1 className='p-3 container'>{props.text.toUpperCase()} </h1>
+            <div className='container'>
                 <textarea className={`form-control mb-1 text-${props.mode === 'light' ? 'dark' : 'light'} bg-${props.mode === 'light' ? 'light' : 'dark'}`} rows='8' value={converttext} onChange={onchange}></textarea>
-                <div className="d-flex align-items-center my-3">
-                    <button type="button " className="btn btn-primary mx-2" onClick={convertcap}>Convet To UpperCase</button>
-                    <button type="button " className="btn btn-primary mx-2" onClick={convertlow}>Convet To LowerCase</button>
-                    <button type="button " className="btn btn-primary mx-2" onClick={convertcew}>Capitalise Each Word</button>
-                    <button type="button " className="btn btn-primary mx-2" onClick={removespaces}>Remove Extra Spaces</button>
-                    <button type="button " className="btn btn-primary mx-2" onClick={copytext}>Copy Text</button>
-                    <button type="button " className="btn btn-primary mx-2" onClick={cleartext}>Clear Text Box</button>
+                <div className="d-flex  justify-content-between align-items-center align-content-around  align-self-center flex-wrap my-3">
+                    <button type="button "  disabled={converttext.length===0} className="flex-fill btn btn-primary my-2 mx-2" onClick={convertcap}>Convet To UpperCase</button>
+                    <button type="button "  disabled={converttext.length===0} className="flex-fill btn btn-primary my-2 mx-2" onClick={convertlow}>Convet To LowerCase</button>
+                    <button type="button "  disabled={converttext.length===0} className="flex-fill btn btn-primary my-2 mx-2" onClick={convertcew}>Capitalise Each Word</button>
+                    <button type="button "  disabled={converttext.length===0} className="flex-fill btn btn-primary my-2 mx-2" onClick={removespaces}>Remove Extra Spaces</button>
+                    <button type="button "  disabled={converttext.length===0} className="flex-fill btn btn-primary my-2 mx-2" onClick={cleartext}>Clear Text Box</button>
+                    <button type="button "  disabled={converttext.length===0} className="flex-fill btn btn-primary my-2 mx-2" onClick={copytext}>Copy Text</button>
                 </div>
             </div>
-            <h2>Your Text Summary</h2>
-            <div>
+            <h2 className='container'>Your Text Summary</h2>
+            <div className='container'>
                 <strong>{converttext.trim() === '' ? 0 : converttext.trim().split(/\s+/g).length}</strong> Words and <strong>{converttext.length}</strong> Characters
             </div>
 

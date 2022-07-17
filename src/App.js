@@ -2,6 +2,8 @@ import React from 'react'
 import Navbar from './components/Navbar';
 import Home from './components/Home';
 import Alert from './components/Alert';
+import About from './components/About';
+import { BrowserRouter, Route, Switch } from "react-router-dom"
 import { useState } from 'react';
 document.body.style.backgroundColor = 'rgb(35 70 108)';
 export default function App() {
@@ -28,10 +30,21 @@ export default function App() {
     };
     return (
         <>
-
-            <Navbar mode={mode} toggledarkmode={toggledarkmode} />
-            <Alert alert={alert} />
-            <Home text='enter text to play' mode={mode} showalert={showalert} />
+            <BrowserRouter>
+                <Navbar mode={mode} toggledarkmode={toggledarkmode} />
+                <Alert alert={alert} />
+                <Switch>
+                    <Route exact path='/'>
+                        <Home text='enter text to play' mode={mode} showalert={showalert} />
+                    </Route>
+                    <Route exact path='/home'>
+                        <Home text='enter text to play' mode={mode} showalert={showalert} />
+                    </Route>
+                    <Route exact path='/about'>
+                        <About />
+                    </Route>
+                </Switch>
+            </BrowserRouter>
         </>
     )
 }
